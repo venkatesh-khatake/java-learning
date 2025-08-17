@@ -1,41 +1,45 @@
-import java.util.Scanner;
-public class Calc {
+class Calc{
     public static void main(String [] args){
+        int num1 = 0;
+        int num2 = 25;
+        char op = '/';
+        float result = 0;
 
-        Scanner sc = new Scanner(System.in);
+        // What is Switch statement?
+        // switch statement is a control flow statement that allows us to execute
+        // one block of code from multiple options, based on value of an expression.
+        // instead of writing multiple if-else condition, we can use "switch" for better
+        // readability and cleaner code.
 
-        System.out.println("Enter number : ");
-        int num1 = sc.nextInt();
-
-        System.out.println("Enter another number : ");
-        int num2 = sc.nextInt();
-
-        System.out.println("Enter Operation : ");
-        String op = sc.nextLine();
-
-        int result;
-
-        switch (op) {
-            case "+":
+        switch(op){
+            case '+':
                 result = num1 + num2;
-                break;
-            
-             case "-":
+                break;  
+            case '-':
                 result = num1 - num2;
                 break;
-            
-             case "*":
+             case '*':
                 result = num1 * num2;
+                break;  
+            case '/':
+                if(num1 == 0 || num2 == 0){
+                    System.out.println("Cannot divide by 0");
+                }else{
+                    result = num1 / num2;
+                }
                 break;
-            
-             case "/":
-                result = num1 / num2;
+            case '%':
+                if(num1 == 0 || num2 == 0){
+                    System.out.println("Cannot divide by 0");
+                }else{
+                    result = num1 % num2;
+                }
                 break;
-                
             default:
-            System.out.println("Enter correct Number :");
-                break;
+                System.out.println("Enter valid Operator.");
         }
 
+        System.out.println(result);
+        
     }
 }
